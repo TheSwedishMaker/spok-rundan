@@ -200,7 +200,7 @@
         hint: "Någon som är helt vild"
       }
     ];
-    const ENTRY_CODE = "15104"; // <- Femsiffrig startkod (ändra här)
+    const ENTRY_CODE = "111019"; // <- Sexsiffrig startkod (ändra här)
     const KEY_GATE = "spok_runda_gate_v1"; // lokal lagring för upplåst start
 
     // Text på knappen
@@ -268,9 +268,9 @@
       count.textContent = 'Start';
 
       qa.innerHTML = `
-        <div class="q">Skriv in startkoden (5 siffror)</div>
+        <div class="q">Skriv in startkoden (6 siffror)</div>
         <div class="field">
-          <input id="gateInput" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="5" autocomplete="one-time-code" placeholder="_ _ _ _ _" aria-label="Startkod" />
+          <input id="gateInput" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="6" autocomplete="one-time-code" placeholder="_ _ _ _ _" aria-label="Startkod" />
           <button id="gateBtn">Lås upp</button>
         </div>
       `;
@@ -281,7 +281,7 @@
 
       function tryUnlock(){
         const val = norm(input.value);
-        if(val.length !== 5){ openModal('Koden ska vara fem siffror.'); return; }
+        if(val.length !== 5){ openModal('Koden ska vara sex siffror.'); return; }
         if(val === norm(ENTRY_CODE)){
           setGate(true);
           showToast('Porten öppnas…');
